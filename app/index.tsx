@@ -1,3 +1,5 @@
+import Colors from "@/constants/Colors";
+import { defaultStyles } from "@/constants/Styles";
 import { useAssets } from "expo-asset";
 import { Video } from "expo-av";
 import { Link } from "expo-router";
@@ -22,9 +24,14 @@ const Page = () => {
       </View>
 
       <View style={styles.buttons}>
-        <Link href={"/login"} asChild>
+        <Link href={"/login"} style={[defaultStyles.pillButton, { flex: 1, backgroundColor: Colors.dark}]} asChild>
           <TouchableOpacity>
-            <Text style={{ color: "white" }}>Login In</Text>
+            <Text style={{ color: "white", fontSize: 22, fontWeight: '500'  }}>Login In</Text>
+          </TouchableOpacity>
+        </Link>
+        <Link href={"/signup"} style={[defaultStyles.pillButton, { flex: 1, backgroundColor: '#fff'}]} asChild>
+          <TouchableOpacity>
+            <Text style={{ color: "black", fontSize: 22, fontWeight: '500'  }}>Sign Up</Text>
           </TouchableOpacity>
         </Link>
       </View>
