@@ -1,7 +1,7 @@
 import Colors from "@/constants/Colors";
 import { defaultStyles } from "@/constants/Styles";
 import { useAssets } from "expo-asset";
-import { Video } from "expo-av";
+import { ResizeMode, Video } from "expo-av";
 import { Link } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
@@ -12,6 +12,7 @@ const Page = () => {
     <View style={styles.container}>
       {assets && (
         <Video
+        resizeMode={ResizeMode.COVER}
           isMuted
           isLooping
           shouldPlay
@@ -41,7 +42,6 @@ const Page = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40,
     flex: 1,
     justifyContent: "space-between",
   },
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 20,
     marginBottom: 60,
+    paddingHorizontal: 20,
   },
 });
 
