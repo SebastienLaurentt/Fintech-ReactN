@@ -14,9 +14,9 @@ import {
 } from "react-native";
 
 const signup = () => {
-  const [countryCode, setCountryCode] = useState("+49");
+  const [countryCode, setCountryCode] = useState("+33");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const keyboardVerticalOffset = Platform.OS === 'ios' ? 80 : 0;
+  const keyboardVerticalOffset = Platform.OS === "ios" ? 80 : 0;
   const router = useRouter();
   const { signUp } = useSignUp();
 
@@ -29,14 +29,21 @@ const signup = () => {
       });
       signUp!.preparePhoneNumberVerification();
 
-      router.push({ pathname: '/verify/[phone]', params: { phone: fullPhoneNumber } });
+      router.push({
+        pathname: "/verify/[phone]",
+        params: { phone: fullPhoneNumber },
+      });
     } catch (error) {
-      console.error('Error signing up:', error);
+      console.error("Error signing up:", error);
     }
   };
 
   return (
-    <KeyboardAvoidingView style={{flex:1}} behavior="padding" keyboardVerticalOffset={keyboardVerticalOffset}>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior="padding"
+      keyboardVerticalOffset={keyboardVerticalOffset}
+    >
       <View style={defaultStyles.container}>
         <Text style={defaultStyles.header}>Let's get Started </Text>
         <Text style={defaultStyles.descriptionText}>
