@@ -16,7 +16,9 @@ const Page = () => {
 
       <View style={styles.actionRow}>
         <RoundBtn icon={'add'} text="Add money" onPress={onAddMoney} />
-        <RoundBtn icon={'add'} text="Request" />
+        <RoundBtn icon={'refresh'} text="Exchange" />
+        <RoundBtn icon={'list'} text="Details" />
+        <RoundBtn icon={'add'} text="Add money" onPress={onAddMoney} />
       </View>
     </ScrollView>
   );
