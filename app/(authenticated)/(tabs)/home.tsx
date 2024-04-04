@@ -37,7 +37,7 @@ const Page = () => {
 
       <Text style={defaultStyles.sectionHeader}>Transactions</Text>
       <View style={styles.transactions}>
-        {transactions.length === 0 && (
+        {transactions.reverse().length === 0 && (
           <Text style={{ padding: 14, color: Colors.gray }}>No transactions yet</Text>
         )}
         {transactions.map((transaction) => (
@@ -62,7 +62,7 @@ const Page = () => {
           </View>
         ))}
       </View>
-      
+
     </ScrollView>
   );
 };
