@@ -2,11 +2,21 @@ import Dropdown from "@/components/DropDown";
 import RoundBtn from "@/components/RoundBtn";
 import Colors from "@/constants/Colors";
 import { useBalanceStore } from "@/store/balanceStore";
-import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 const Page = () => {
-  const { balance, runTransaction, transactions, clearTransactions } = useBalanceStore();
-  const onAddMoney = () => {}
+  const { balance, runTransaction, transactions, clearTransactions } =
+    useBalanceStore();
+
+  const onAddMoney = () => {
+    runTransaction({
+      id: Math.random().toString(),
+      amount: Math.floor(Math.random() * 1000) * (Math.random() > 0.5 ? 1 : -1),
+      date: new Date(),
+      title: "Added money",
+    });
+  };
+  
   return (
     <ScrollView style={{ backgroundColor: Colors.background }}>
       <View style={styles.account}>
@@ -17,9 +27,9 @@ const Page = () => {
       </View>
 
       <View style={styles.actionRow}>
-        <RoundBtn icon={'add'} text="Add money" onPress={onAddMoney} />
-        <RoundBtn icon={'refresh'} text="Exchange" />
-        <RoundBtn icon={'list'} text="Details" />
+        <RoundBtn icon={"add"} text="Add money" onPress={onAddMoney} />
+        <RoundBtn icon={"refresh"} text="Exchange" />
+        <RoundBtn icon={"list"} text="Details" />
         <Dropdown />
       </View>
     </ScrollView>
