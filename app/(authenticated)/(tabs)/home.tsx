@@ -30,7 +30,7 @@ const Page = () => {
 
       <View style={styles.actionRow}>
         <RoundBtn icon={"add"} text="Add money" onPress={onAddMoney} />
-        <RoundBtn icon={"refresh"} text="Exchange" />
+        <RoundBtn icon={"refresh"} text="Exchange" onPress={clearTransactions} />
         <RoundBtn icon={"list"} text="Details" />
         <Dropdown />
       </View>
