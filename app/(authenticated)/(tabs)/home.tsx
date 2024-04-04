@@ -37,10 +37,10 @@ const Page = () => {
 
       <Text style={defaultStyles.sectionHeader}>Transactions</Text>
       <View style={styles.transactions}>
-        {transactions.reverse().length === 0 && (
+        {transactions.length === 0 && (
           <Text style={{ padding: 14, color: Colors.gray }}>No transactions yet</Text>
         )}
-        {transactions.map((transaction) => (
+        {transactions.reverse().map((transaction) => (
           <View
             key={transaction.id}
             style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
