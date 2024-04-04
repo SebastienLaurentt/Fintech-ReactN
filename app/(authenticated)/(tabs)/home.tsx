@@ -5,11 +5,13 @@ import Colors from "@/constants/Colors";
 import { defaultStyles } from "@/constants/Styles";
 import { useBalanceStore } from "@/store/balanceStore";
 import { Ionicons } from "@expo/vector-icons";
+import { useHeaderHeight } from "@react-navigation/elements";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 const Page = () => {
   const { balance, runTransaction, transactions, clearTransactions } =
     useBalanceStore();
+  const headerHeight = useHeaderHeight();
 
   const onAddMoney = () => {
     runTransaction({
@@ -21,7 +23,12 @@ const Page = () => {
   };
 
   return (
-    <ScrollView style={{ backgroundColor: Colors.background }}>
+    <ScrollView
+      style={{ backgroundColor: Colors.background }}
+      contentContainerStyle={{
+        paddingTop: headerHeight,
+      }}
+    >
       <View style={styles.account}>
         <View style={styles.row}>
           <Text style={styles.balance}>{balance()}</Text>
@@ -31,7 +38,11 @@ const Page = () => {
 
       <View style={styles.actionRow}>
         <RoundBtn icon={"add"} text="Add money" onPress={onAddMoney} />
-        <RoundBtn icon={"refresh"} text="Exchange" onPress={clearTransactions} />
+        <RoundBtn
+          icon={"refresh"}
+          text="Exchange"
+          onPress={clearTransactions}
+        />
         <RoundBtn icon={"list"} text="Details" />
         <Dropdown />
       </View>
@@ -39,22 +50,25 @@ const Page = () => {
       <Text style={defaultStyles.sectionHeader}>Transactions</Text>
       <View style={styles.transactions}>
         {transactions.length === 0 && (
-          <Text style={{ padding: 14, color: Colors.gray }}>No transactions yet</Text>
+          <Text style={{ padding: 14, color: Colors.gray }}>
+            No transactions yet
+          </Text>
         )}
         {transactions.reverse().map((transaction) => (
           <View
             key={transaction.id}
-            style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+            style={{ flexDirection: "row", alignItems: "center", gap: 16 }}
+          >
             <View style={styles.circle}>
               <Ionicons
-                name={transaction.amount > 0 ? 'add' : 'remove'}
+                name={transaction.amount > 0 ? "add" : "remove"}
                 size={24}
                 color={Colors.dark}
               />
             </View>
 
             <View style={{ flex: 1 }}>
-              <Text style={{ fontWeight: '400' }}>{transaction.title}</Text>
+              <Text style={{ fontWeight: "400" }}>{transaction.title}</Text>
               <Text style={{ color: Colors.gray, fontSize: 12 }}>
                 {transaction.date.toLocaleString()}
               </Text>
@@ -66,7 +80,6 @@ const Page = () => {
 
       <Text style={defaultStyles.sectionHeader}>Widgets</Text>
       <WidgetList />
-
     </ScrollView>
   );
 };
