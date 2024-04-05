@@ -37,8 +37,7 @@
           "origin": "https://galaxies.dev"
         }
       ],
-      "expo-secure-store",
-      "expo-dynamic-app-icon"
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true

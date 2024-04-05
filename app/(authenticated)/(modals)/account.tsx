@@ -5,7 +5,6 @@ import { BlurView } from 'expo-blur';
 import Colors from '@/constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
-import { getAppIcon, setAppIcon } from 'expo-dynamic-app-icon';
 
 const ICONS = [
   {
@@ -31,14 +30,7 @@ const Page = () => {
 
   const [activeIcon, setActiveIcon] = useState('Default');
 
-  useEffect(() => {
-    const loadCurrentIconPref = async () => {
-      const icon = await getAppIcon();
-      console.log('🚀 ~ loadCurrentIconPref ~ icon:', icon);
-      setActiveIcon(icon);
-    };
-    loadCurrentIconPref();
-  }, []);
+
 
   const onSaveUser = async () => {
     try {
@@ -70,10 +62,6 @@ const Page = () => {
     }
   };
 
-  const onChangeAppIcon = async (icon: string) => {
-    await setAppIcon(icon.toLowerCase());
-    setActiveIcon(icon);
-  };
 
   return (
     <BlurView
@@ -151,7 +139,7 @@ const Page = () => {
           <TouchableOpacity
             key={icon.name}
             style={styles.btn}
-            onPress={() => onChangeAppIcon(icon.name)}>
+            >
             <Image source={icon.icon} style={{ width: 24, height: 24 }} />
             <Text style={{ color: '#fff', fontSize: 18 }}>{icon.name}</Text>
             {activeIcon.toLowerCase() === icon.name.toLowerCase() && (
