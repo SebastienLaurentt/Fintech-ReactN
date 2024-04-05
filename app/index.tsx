@@ -27,7 +27,7 @@ const Page = () => {
       <View style={styles.buttons}>
         <Link href={"/login"} style={[defaultStyles.pillButton, { flex: 1, backgroundColor: Colors.dark}]} asChild>
           <TouchableOpacity>
-            <Text style={{ color: "white", fontSize: 22, fontWeight: '500'  }}>Login In</Text>
+            <Text style={{ color: "white", fontSize: 22, fontWeight: '500'  }}>Log In</Text>
           </TouchableOpacity>
         </Link>
         <Link href={"/signup"} style={[defaultStyles.pillButton, { flex: 1, backgroundColor: '#fff'}]} asChild>
