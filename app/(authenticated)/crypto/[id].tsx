@@ -10,11 +10,26 @@ const Page = () => {
   const headerHeight = useHeaderHeight();
   return (
     <>
-      <Stack.Screen options={{ title: "DETAILS" }} />
+      <Stack.Screen options={{ title: "BITCOIN" }} />
       <SectionList
-        style={{ paddingTop: headerHeight }}
+        style={{ marginTop: headerHeight }}
+        contentInsetAdjustmentBehavior="automatic"
         keyExtractor={(i) => i.title}
         sections={[{ data: [{ title: "Chart" }] }]}
+        ListHeaderComponent={() => (
+          <>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginHorizontal: 16,
+              }}
+            >
+              <Text style={styles.subtitle}>Bitcoin</Text>
+            </View>
+          </>
+        )}
         renderItem={({ item }) => (
           <>
             <View style={[defaultStyles.block, { marginTop: 20 }]}>

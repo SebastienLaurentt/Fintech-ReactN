@@ -146,10 +146,10 @@ const InitialLayout = () => {
         name="(authenticated)/(tabs)"
         options={{ headerShown: false }}
       />
-            <Stack.Screen
+      <Stack.Screen
         name="(authenticated)/crypto/[id]"
         options={{
-          title: '',
+          title: "",
           headerLeft: () => (
             <TouchableOpacity onPress={router.back}>
               <Ionicons name="arrow-back" size={34} color={Colors.dark} />
@@ -158,9 +158,13 @@ const InitialLayout = () => {
           headerLargeTitle: true,
           headerTransparent: true,
           headerRight: () => (
-            <View style={{ flexDirection: 'row', gap: 10 }}>
+            <View style={{ flexDirection: "row", gap: 10 }}>
               <TouchableOpacity>
-                <Ionicons name="notifications-outline" color={Colors.dark} size={30} />
+                <Ionicons
+                  name="notifications-outline"
+                  color={Colors.dark}
+                  size={30}
+                />
               </TouchableOpacity>
               <TouchableOpacity>
                 <Ionicons name="star-outline" color={Colors.dark} size={30} />

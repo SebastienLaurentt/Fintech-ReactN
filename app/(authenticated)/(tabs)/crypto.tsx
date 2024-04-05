@@ -32,7 +32,7 @@ const Page = () => {
         {currencies.data?.map((currency: Currency) => (
           <Link href={`/crypto/${currency.id}`} key={currency.id} asChild>
             <TouchableOpacity style={{ flexDirection: 'row', gap: 14, alignItems: 'center' }}>
-              <Image source={{ uri: data?.[currency.id].logo }} style={{ width: 40, height: 40 }} />
+              {/* <Image source={{ uri: data?.[currency.id].logo }} style={{ width: 40, height: 40 }} /> */}
               <View style={{ flex: 1, gap: 6 }}>
                 <Text style={{ fontWeight: '600', color: Colors.dark }}>{currency.name}</Text>
                 <Text style={{ color: Colors.gray }}>{currency.symbol}</Text>
