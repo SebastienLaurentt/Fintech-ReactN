@@ -6,6 +6,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Link } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { MaterialIcons } from '@expo/vector-icons';
 
 const Page = () => {
   const [assets] = useAssets([require("@/assets/videos/intro.mp4")]);
@@ -26,9 +27,10 @@ const Page = () => {
         <LinearGradient
           // Background Linear Gradient
           colors={["transparent", "rgba(0,0,0,1)"]}
-          style={{ marginTop: 640, padding: 20 }}
+          style={{height:200, marginTop: 640, padding: 20 }}
         >
           <View style={{ paddingTop: 0 }}>
+            <MaterialIcons name="currency-bitcoin" size={32} color="white" />
             <Text style={styles.header}>Change the way</Text>
             <Text style={styles.paragraph}>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab,
