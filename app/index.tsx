@@ -1,12 +1,12 @@
 import Colors from "@/constants/Colors";
 import { defaultStyles } from "@/constants/Styles";
+import { MaterialIcons } from "@expo/vector-icons";
 import { useAssets } from "expo-asset";
 import { ResizeMode, Video } from "expo-av";
 import { LinearGradient } from "expo-linear-gradient";
 import { Link } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { MaterialIcons } from '@expo/vector-icons';
 
 const Page = () => {
   const [assets] = useAssets([require("@/assets/videos/intro.mp4")]);
@@ -23,21 +23,21 @@ const Page = () => {
         />
       )}
 
-      <View>
-        <LinearGradient
-          // Background Linear Gradient
-          colors={["transparent", "rgba(0,0,0,1)"]}
-          style={{height:200, marginTop: 640, padding: 20 }}
-        >
-          <View style={{ paddingTop: 0 }}>
-            <MaterialIcons name="currency-bitcoin" size={32} color="white" />
-            <Text style={styles.header}>Change the way</Text>
-            <Text style={styles.paragraph}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab,
-              perspiciatis?
-            </Text>
-          </View>
+      <View style={styles.header}>
+        <MaterialIcons name="currency-bitcoin" size={40} color="white" />
+        <Text style={styles.textHeader}>Be Your Own Bank</Text>
+      </View>
 
+      <LinearGradient
+        // Background Linear Gradient
+        colors={["transparent", "rgba(0,0,0,1)"]}
+        style={{
+          ...StyleSheet.absoluteFillObject,
+          paddingHorizontal: 20,
+          paddingBottom: 40,
+        }}
+      >
+        <View style={styles.content}>
           <View style={styles.buttons}>
             <Link
               href={"/signup"}
@@ -72,8 +72,8 @@ const Page = () => {
               </TouchableOpacity>
             </Link>
           </View>
-        </LinearGradient>
-      </View>
+        </View>
+      </LinearGradient>
     </View>
   );
 };
@@ -81,32 +81,31 @@ const Page = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-between",
   },
   video: {
-    width: "100%",
-    height: "100%",
-    position: "absolute",
+    ...StyleSheet.absoluteFillObject,
     justifyContent: "center",
     alignItems: "center",
   },
-  header: {
-    fontSize: 36,
-    fontWeight: "900",
-    textTransform: "uppercase",
-    color: "white",
+  content: {
+    flex: 1,
+    justifyContent: "flex-end",
   },
-  paragraph: {
-    fontSize: 20,
-    fontWeight: "500",
+  header:{
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: 40,
+  },
+  textHeader: {
+    fontSize: 40,
+    fontWeight: "800",
     color: "white",
   },
   buttons: {
     flexDirection: "row",
     justifyContent: "center",
     gap: 20,
-    marginBottom: 60,
-    paddingVertical: 20,
+    marginTop: 10,
   },
 });
 
