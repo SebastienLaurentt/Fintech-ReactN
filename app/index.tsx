@@ -2,8 +2,8 @@ import Colors from "@/constants/Colors";
 import { defaultStyles } from "@/constants/Styles";
 import { useAssets } from "expo-asset";
 import { ResizeMode, Video } from "expo-av";
+import { LinearGradient } from "expo-linear-gradient";
 import { Link } from "expo-router";
-import { LinearGradient } from 'expo-linear-gradient';
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -21,20 +21,38 @@ const Page = () => {
           style={styles.video}
         />
       )}
-      
-      <View >
+
+      <View>
         <LinearGradient
           // Background Linear Gradient
-          colors={["rgba(0,0,0,1)", "transparent"]}
-          style={{ marginTop: 600, padding: 20 }}
+          colors={["transparent", "rgba(0,0,0,1)"]}
+          style={{ marginTop: 640, padding: 20 }}
         >
-          <View>
-            <Text style={styles.header}>
-              Ready to change the way you money?
+          <View style={{ paddingTop: 0 }}>
+            <Text style={styles.header}>Change the way</Text>
+            <Text style={styles.paragraph}>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab,
+              perspiciatis?
             </Text>
           </View>
 
           <View style={styles.buttons}>
+            <Link
+              href={"/signup"}
+              style={[
+                defaultStyles.pillButton,
+                { flex: 1, backgroundColor: "#0f766e" },
+              ]}
+              asChild
+            >
+              <TouchableOpacity>
+                <Text
+                  style={{ color: "white", fontSize: 18, fontWeight: "500" }}
+                >
+                  Sign Up
+                </Text>
+              </TouchableOpacity>
+            </Link>
             <Link
               href={"/login"}
               style={[
@@ -45,25 +63,9 @@ const Page = () => {
             >
               <TouchableOpacity>
                 <Text
-                  style={{ color: "white", fontSize: 22, fontWeight: "500" }}
+                  style={{ color: "white", fontSize: 18, fontWeight: "500" }}
                 >
                   Log In
-                </Text>
-              </TouchableOpacity>
-            </Link>
-            <Link
-              href={"/signup"}
-              style={[
-                defaultStyles.pillButton,
-                { flex: 1, backgroundColor: "#fff" },
-              ]}
-              asChild
-            >
-              <TouchableOpacity>
-                <Text
-                  style={{ color: "black", fontSize: 22, fontWeight: "500" }}
-                >
-                  Sign Up
                 </Text>
               </TouchableOpacity>
             </Link>
@@ -90,6 +92,11 @@ const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: "900",
     textTransform: "uppercase",
+    color: "white",
+  },
+  paragraph: {
+    fontSize: 20,
+    fontWeight: "500",
     color: "white",
   },
   buttons: {
