@@ -23,21 +23,23 @@ const Page = () => {
         />
       )}
 
-      <View style={styles.header}>
-        <MaterialIcons name="currency-bitcoin" size={40} color="white" />
-        <Text style={styles.textHeader}>Be Your Own Bank</Text>
-      </View>
-
       <LinearGradient
         // Background Linear Gradient
         colors={["transparent", "rgba(0,0,0,1)"]}
         style={{
           ...StyleSheet.absoluteFillObject,
           paddingHorizontal: 20,
-          paddingBottom: 40,
+          paddingBottom: 30,
         }}
       >
         <View style={styles.content}>
+          {/* Text */}
+          <View>
+            <MaterialIcons name="currency-bitcoin" size={40} color="white" />
+            <Text style={{ color: "white", fontSize: 40, fontWeight: "800" }}> Be Your Own Bank</Text>
+          </View>
+
+          {/* Buttons */}
           <View style={styles.buttons}>
             <Link
               href={"/signup"}
@@ -59,13 +61,13 @@ const Page = () => {
               href={"/login"}
               style={[
                 defaultStyles.pillButton,
-                { flex: 1, backgroundColor: Colors.dark },
+                { flex: 1, backgroundColor: Colors.white },
               ]}
               asChild
             >
               <TouchableOpacity>
                 <Text
-                  style={{ color: "white", fontSize: 18, fontWeight: "500" }}
+                  style={{ color: "black", fontSize: 18, fontWeight: "500" }}
                 >
                   Log In
                 </Text>
@@ -90,16 +92,6 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     justifyContent: "flex-end",
-  },
-  header:{
-    flexDirection: "column",
-    alignItems: "center",
-    marginTop: 40,
-  },
-  textHeader: {
-    fontSize: 40,
-    fontWeight: "800",
-    color: "white",
   },
   buttons: {
     flexDirection: "row",
