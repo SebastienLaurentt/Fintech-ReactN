@@ -23,20 +23,27 @@ const Page = () => {
         />
       )}
 
-      <LinearGradient
-        // Background Linear Gradient
-        colors={["transparent", "rgba(0,0,0,1)"]}
-        style={{
-          ...StyleSheet.absoluteFillObject,
-          paddingHorizontal: 20,
-          paddingBottom: 30,
-        }}
-      >
-        <View style={styles.content}>
-          {/* Text */}
+      <View style={styles.content}>
+        {/* Text */}
+        <LinearGradient
+          colors={[
+            "rgba(0,0,0,0)",
+            "rgba(0,0,0,0.9)",
+            "rgba(0,0,0,1)",
+            "rgba(0,0,0,1)",
+            "rgba(0,0,0,1)",
+            "rgba(0,0,0,1)",
+          ]}
+          style={styles.text}
+        >
           <View>
             <MaterialIcons name="currency-bitcoin" size={40} color="white" />
-            <Text style={{ color: "white", fontSize: 40, fontWeight: "800" }}> Be Your Own Bank</Text>
+            <Text style={{ color: "white", fontSize: 40, fontWeight: "800", paddingLeft:10}}>
+            Be Your Own Bank
+            </Text>
+            <Text style={{ color: "white", fontSize: 20, fontWeight: "800", paddingLeft:10 }}>
+              It's time to become financially free
+            </Text>
           </View>
 
           {/* Buttons */}
@@ -74,8 +81,8 @@ const Page = () => {
               </TouchableOpacity>
             </Link>
           </View>
-        </View>
-      </LinearGradient>
+        </LinearGradient>
+      </View>
     </View>
   );
 };
@@ -85,19 +92,24 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   video: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: "center",
-    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    position: "absolute",
   },
   content: {
     flex: 1,
     justifyContent: "flex-end",
   },
+  text: {
+    paddingHorizontal: 20,
+    paddingBottom: 10,
+    paddingTop: 90,
+  },
   buttons: {
     flexDirection: "row",
     justifyContent: "center",
     gap: 20,
-    marginTop: 10,
+    marginTop: 20,
   },
 });
 
